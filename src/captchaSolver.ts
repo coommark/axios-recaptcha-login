@@ -13,7 +13,6 @@ interface Payload {
         websiteURL: string;
         websiteKey: string;
         pageAction?: string;
-        proxy?: string;
     };
     taskId?: string;
 }
@@ -25,6 +24,7 @@ interface ResponseData {
     };
 }
 
+// Utilize EventEmitter for an event-driven architecture, enabling multiple subscribers and enhancing scalability.
 export default class CaptchaSolver extends EventEmitter {
     private static readonly PAGE_URL = process.env.LOGIN_URL!;
     private static readonly PAGE_KEY = process.env.PAGE_KEY!;
@@ -86,6 +86,7 @@ export default class CaptchaSolver extends EventEmitter {
         }
     }
 
+    // Public method to be called after class is instantiated
     async solve(): Promise<void> {
         const headers = {
             "Content-Type": "application/json",

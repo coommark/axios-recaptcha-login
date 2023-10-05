@@ -7,6 +7,7 @@ import { logger } from "./utils/logger";
 
 dotenv.config();
 
+// Utilize EventEmitter for an event-driven architecture, enabling multiple subscribers and enhancing scalability.
 export default class LoginManager extends EventEmitter {
     private static readonly LOGIN_URL = process.env.LOGIN_URL ?? "";
     private static readonly LOGIN_MAX_RETRIES = parseInt(process.env.LOGIN_MAX_RETRIES ?? "3");
@@ -54,6 +55,7 @@ export default class LoginManager extends EventEmitter {
         }
     }
 
+    // Public method to be called after class is instantiated
     async login(recaptchaToken: string): Promise<void> {
         let retries = 0;
         while (retries < LoginManager.LOGIN_MAX_RETRIES) {
