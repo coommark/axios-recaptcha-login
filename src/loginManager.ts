@@ -46,7 +46,7 @@ export default class LoginManager extends EventEmitter {
     }
 
     private async handleLoginResponse(response: AxiosResponse): Promise<void> {
-        if (response.status === 200) {
+        if (response.status === 200 && response.data.includes('<h3 class="mar-bot">Account Information</h3>')) {
             logger.info("Logged in successfully!");
             this.emit("login_success", response);
         } else {
