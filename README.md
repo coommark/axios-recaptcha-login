@@ -14,7 +14,7 @@ Clone Repo
 ## Set .env variable
 
 1. Rename the .env.dev to .env
-2. Enter the values for the env variable. All variable are required.
+2. Enter the values for the env variable. All values are required.
 
 ## Install and Run
 
