@@ -5,7 +5,9 @@
     "license": "MIT",
     "scripts": {
         "build": "tsc",
-        "start": "node dist/index.js"
+        "start": "node dist/index.js",
+        "try-captcha": "node dist/poc/tryRecaptchaScore.js",
+        "missen-headers": "node dist/poc/compareCookies.js"
     },
     "dependencies": {
         "axios": "^1.5.1",
