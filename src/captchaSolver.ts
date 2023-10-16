@@ -31,6 +31,8 @@ export default class CaptchaSolver extends EventEmitter {
     private static readonly PAGE_KEY = process.env.PAGE_KEY!;
     private static readonly PAGE_ACTION = process.env.PAGE_ACTION!;
     private static readonly CAPSOLVER_KEY = process.env.CAPSOLVER_KEY!;
+    private static readonly CREATE_TASK_URL = process.env.CREATE_TASK_URL!;
+    private static readonly GET_TASK_URL = process.env.GET_TASK_URL!;
     private static readonly MAX_RETRIES = 5;
 
     constructor() {
@@ -41,7 +43,7 @@ export default class CaptchaSolver extends EventEmitter {
     private async createTask(): Promise<string> {
         logger.info("Creating CAPTCHA task...");
         try {
-            const apiUrl: string = "https://api.capsolver.com/createTask";
+            const apiUrl: string = CaptchaSolver.CREATE_TASK_URL;
             const payload: Payload = {
                 clientKey: CaptchaSolver.CAPSOLVER_KEY,
                 task: {
@@ -65,7 +67,7 @@ export default class CaptchaSolver extends EventEmitter {
     private async getTaskResult(taskId: string): Promise<{ gRecaptchaResponse: string }> {
         logger.info("Retrieving CAPTCHA result...");
         try {
-            const apiUrl: string = "https://api.capsolver.com/getTaskResult";
+            const apiUrl: string = CaptchaSolver.GET_TASK_URL;
             const payload: Payload = {
                 clientKey: CaptchaSolver.CAPSOLVER_KEY,
                 taskId: taskId,

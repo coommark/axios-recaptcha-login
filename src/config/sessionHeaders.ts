@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+const REFERER = process.env.REFERER!;
 export const captchaSessionHeaders = {
     "cache-control": "max-age=0",
     "sec-ch-ua": '"Not/A)Brand";v="99", "Google Chrome";v="107", "Chromium";v="107"',
@@ -20,7 +23,7 @@ export const loginSessionHeaders = {
     "Accept-Language": "en-US,en;q=0.9",
     "Cache-Control": "no-cache",
     Pragma: "no-cache",
-    Referer: "https://shopnicekicks.com/account",
+    Referer: REFERER,
     "Sec-Ch-Ua": '"Google Chrome";v="117", "Not;A=Brand";v="8", "Chromium";v="117"',
     "Sec-Ch-Ua-Mobile": "?0",
     "Sec-Ch-Ua-Platform": '"macOS"',
