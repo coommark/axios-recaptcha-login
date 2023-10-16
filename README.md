@@ -35,7 +35,7 @@ Test sample captcha score with yarn
 Find missen headers (why it is failing) with yarn
 
 ```bash
-  yarn try-captcha
+  yarn missen-headers
 ```
 
 Install and run with npm
@@ -55,5 +55,5 @@ Test sample captcha score with npm
 Find missen headers (why it is failing) with npm
 
 ```bash
-  npm run try-captcha
+  npm run missen-headers
 ```
